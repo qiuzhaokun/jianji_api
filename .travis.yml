@@ -2,7 +2,6 @@ language: php - 7.1 - nightly
 env:
 - APP_DEBUG=false
 script:
-- phpunit -c phpunit.xml --coverage-text
 addons:
   ssh_known_hosts: 47.93.91.86
 after_success:
