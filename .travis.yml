@@ -1,7 +1,6 @@
 language: php
 php:
 - 7.1.9
-- nightly
 env:
 - APP_DEBUG=false
 script:
