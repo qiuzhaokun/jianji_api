@@ -1,8 +1,11 @@
-language: php - 7.1 - nightly
+language: php
+
+php:
+  - 7.1.9
+  - nightly
 env:
-- APP_DEBUG=false
-script:
+  - APP_DEBUG=false
 addons:
   ssh_known_hosts: 47.93.91.86
 after_success:
-- ssh root@47.93.91.86 "./webroot/api.jianji.myexist.cn/travis_build.sh"
+  - ssh root@47.93.91.86 "./webroot/api.jianji.myexist.cn/travis_build.sh"
