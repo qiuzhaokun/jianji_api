@@ -8,7 +8,7 @@ script:
 addons:
   ssh_known_hosts: 47.93.91.86
 after_success:
-- ssh root@47.93.91.86 "./webroot/api.jianji.myexist.cn/travis_build.sh"
+- ssh root@47.93.91.86 "/webroot/api.jianji.myexist.cn/travis_build.sh"
 notifications:
   email: false
 before_install:
