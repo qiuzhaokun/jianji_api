@@ -5,6 +5,8 @@ php:
   - nightly
 env:
   - APP_DEBUG=false
+script:
+  -
 addons:
   ssh_known_hosts: 47.93.91.86
 after_success:
