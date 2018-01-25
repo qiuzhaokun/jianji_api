@@ -1,15 +1,16 @@
-language: php
-  - 7.1
-  - nightly
+language: php - 7.1 - nightly
 env:
-  - APP_DEBUG=false
+- APP_DEBUG=false
 script:
-  - phpunit -c phpunit.xml --coverage-text
+- phpunit -c phpunit.xml --coverage-text
 before_install:
-  - openssl aes-256-cbc -K $encrypted_5f7cffe81ccb_key -iv $encrypted_5f7cffe81ccb_iv
-  - in id_rsa.enc -out ~/.ssh/id_rsa -d
-  - chmod 600 ~/.ssh/id_rsa
+- openssl aes-256-cbc -K $encrypted_5f7cffe81ccb_key -iv $encrypted_5f7cffe81ccb_iv
+  -in id_rsa.pub.enc -out ~\/.ssh/id_rsa.pub -d
+- openssl aes-256-cbc -K $encrypted_5f7cffe81ccb_key -iv $encrypted_5f7cffe81ccb_iv
+  -in id_rsa.enc -out ~\/.ssh/id_rsa -d
+- openssl aes-256-cbc -K $encrypted_5f7cffe81ccb_key -iv $encrypted_5f7cffe81ccb_iv
+  -in id_rsa.enc -out ~/.ssh/id_rsa -d
 addons:
   ssh_known_hosts: 47.93.91.86
 after_success:
-  - ssh root@47.93.91.86 "./webroot/api.jianji.myexist.cn/travis_build.sh"
+- ssh root@47.93.91.86 "./webroot/api.jianji.myexist.cn/travis_build.sh"
