@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\NoteModel;
+use App\Observer\NoteObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,5 +21,7 @@ class AppServiceProvider extends ServiceProvider
                 $app['Illuminate\Routing\Redirector']
             );
         });
+
+        NoteModel::observe(NoteObserver::class);
     }
 }

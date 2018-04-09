@@ -20,25 +20,22 @@ class ApiResponseJson
             return $next($request);
         }
         $status = 200;
-        $msg = 'ok.';
+        $msg = 'ok';
         if (!empty($data['msg'])) {
             $data = $data['data'] ?? [];
         }
+        if (!empty($data['err'])) {
+            $status = $data['status'] ?? 500;
+            $msg = $data['err'] ?? 'fail';
+            $data = $data['data'] ?? [];
+        }
+
         if (!empty($data['status'])) {
             $status = $data['status'];
             $msg = $data['msg'] ?? $msg;
             $data = $data['data'] ?? [];
         }
         $response = ['status' => $status, 'msg' => $msg, 'data' => $data];
-
-        if (!empty($data['err'])) {
-            $status = $data['status'] ?? 500;
-            $response = [
-                'status' => $status,
-                'msg'    => $data['err'] ?? 'fail.',
-                'data'   => $data['data'] ?? []
-            ];
-        }
         return Response()->json($response, $status);
     }
 }

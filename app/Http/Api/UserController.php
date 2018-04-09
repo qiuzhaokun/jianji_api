@@ -11,9 +11,11 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
+
     /**
      * 用户登录 微信小程序code 获取openId 然后登陆
      * @param Request $request
+     * @return array
      */
     public function login(Request $request)
     {
